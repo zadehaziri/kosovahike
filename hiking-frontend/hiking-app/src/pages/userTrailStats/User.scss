@@ -1,0 +1,44 @@
+@import '../../styles/global.scss';
+
+.user {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #2d3439;
+  padding: 1rem 1.4rem;
+  border-radius: 7px;
+  z-index: 999;
+  box-shadow: 0 8px 24px rgba(36, 42, 46, 0.5);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ececec;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  @include medium-screen-and-more {
+    top: 4rem;
+    right: 4rem;
+    font-weight: 600;
+  }
+}
+
+.user button {
+  background-color: #42484d;
+  border-radius: 7px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.user .avatar {
+  vertical-align: middle;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}

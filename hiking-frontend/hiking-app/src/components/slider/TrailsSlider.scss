@@ -1,0 +1,63 @@
+@import '../../styles/global.scss';
+
+.trails-slider {
+  .slick-slider {
+    padding: 0 35px;
+    max-width: 1200px;
+    bottom: 25px;
+
+    @include small-screen-and-more {
+      padding: 0 55px;
+    }
+  }
+
+  .slick-prev {
+    left: 0px;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+
+  .slick-next:before,
+  .slick-prev:before {
+    color: rgb(25, 72, 25);
+  }
+
+  .slick-prev:hover,
+  .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    color: inherit;
+    outline: none;
+    background: '';
+  }
+
+  .custom-prev-arrow,
+  .custom-next-arrow {
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 15px;
+  }
+
+  .custom-prev-arrow {
+    left: -10px;
+
+    @include small-screen-and-more {
+      left: -15px;
+    }
+  }
+
+  .custom-next-arrow {
+    right: -10px;
+    @include small-screen-and-more {
+      right: -15px;
+    }
+  }
+}

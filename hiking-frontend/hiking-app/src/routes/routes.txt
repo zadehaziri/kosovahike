@@ -1,0 +1,109 @@
+import { createBrowserRouter } from "react-router-dom";
+
+import Layout from "./Layout";
+import Home from "../pages/home/Home";
+import Login from "../pages/login/Login";
+import HikingBuddy from "../pages/hikingBuddy/HikingBuddy";
+import Reminder from "../pages/Reminder/Reminder";
+import GearPage from "../pages/gear/Gear";
+import SignUp from "../pages/signUp/SignUp";
+import UserProfile from "../pages/userProfile/UserProfile";
+import TestComponent from "../components/TestComponent";
+import Trailspage from "../pages/Trails/Trailspage";
+import UserTrailStats from "../pages/userTrailStats/UserTrailStats";
+import PastTrails from "../components/pastTrails/PastTrails";
+import Form from "../pages/userTrailStats/Form";
+import PastTrailItem from "../components/pastTrails/PastTrailItem";
+import Weather from "../pages/weather/Weather";
+import { ProtectedRoutes } from "./ProtectedRoutes";
+
+import EasyGearPage from '../components/gearandequipment/EasyGearPage';
+import ModerateGearPage from '../components/gearandequipment/ModerateGearPage';
+import HardGearPage from '../components/gearandequipment/HardGearPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+
+    
+      {
+        path: "/easygear",
+        element: <EasyGearPage />,
+      },
+
+      {
+        path: "/moderategear",
+        element: <ModerateGearPage />,
+      },
+      {
+        path: "/hardgear",
+        element: <HardGearPage/>
+      },
+
+
+
+
+
+      {
+        path: "/hiking-buddy",
+        element: <HikingBuddy />,
+      },
+      {
+        path: "/reminder",
+        element: <Reminder />,
+      },
+      {
+        path: "/gear",
+        element: <GearPage />,
+      },
+
+      {
+        path: "/sign-up",
+        element: <SignUp />,
+      },
+      {
+        path: "/profile",
+        element: <UserProfile />,
+      },
+
+      {
+        path: "Weather",
+        element: <Weather />,
+      },
+      {
+        path: "/trails/trail/:trailName",
+        element: <Trailspage />,
+      },
+      {
+        path: "/userProfile",
+        element: <UserProfile />,
+      },
+      {
+        path: "/user-stats",
+        element: (
+          <ProtectedRoutes>
+            <UserTrailStats />
+          </ProtectedRoutes>
+          //   fixed this part
+        ),
+        children: [
+          { index: true, path: "past-trails", element: <PastTrails /> },
+          { path: "form", element: <Form /> },
+          { path: "past-trails/:id", element: <PastTrailItem /> },
+        ],
+      },
+    ],
+  },
+]);
+
+export default router;

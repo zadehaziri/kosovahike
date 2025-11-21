@@ -1,0 +1,73 @@
+@import '../../styles/global.scss';
+
+.map-form {
+  background-color: #42484d;
+  border-radius: 7px;
+  padding: 20px 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flag {
+    position: absolute;
+    right: 10px;
+    top: 27px;
+    font-size: 28px;
+  }
+
+  .map-form.loading {
+    opacity: 0.3;
+  }
+
+  .map-form.loading button {
+    pointer-events: none;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6dee0;
+    transition: all 0.2s;
+  }
+
+  .btn {
+    color: inherit;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $primary-green;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $secondary-green;
+    }
+  }
+
+  .back {
+    font-weight: 600;
+    background: none;
+    border: 1px solid currentColor;
+  }
+}

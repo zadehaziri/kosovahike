@@ -1,0 +1,43 @@
+@import '../../styles/global.scss';
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
+
+.trail-discovery {
+  // margin: 0 auto;
+  // max-width: 1200px;
+  // display: grid;
+  // place-items: center;
+  h1 {
+    padding: 0 20px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: 12px;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Exo', sans-serif;
+
+    @include small-screen-and-more {
+      padding: 0 35px;
+    }
+  }
+
+  .card-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .trails-cards {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+
+    @include small-screen-and-more {
+      padding: 20px 30px;
+    }
+  }
+}

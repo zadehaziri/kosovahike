@@ -1,0 +1,18 @@
+.leaflet-control-geocoder-form {
+  display: block !important;
+}
+
+.leaflet-control-geocoder-form input[type='text'] {
+  width: 300px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.leaflet-control-geocoder-form button[type='submit'] {
+  display: none;
+}
+
+.leaflet-touch .leaflet-control-geocoder-icon {
+  display: none;
+}

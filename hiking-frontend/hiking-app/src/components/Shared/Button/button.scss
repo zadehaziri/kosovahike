@@ -1,0 +1,68 @@
+@import "../../../styles//variables.scss";
+
+//for transparent button use className="basic-btn", and for green button use className="basic-btn green"
+
+.basic-btn {
+  color: $font-color;
+  padding: 0.875rem 2rem;
+  border: 2px solid;
+  background-color: transparent;
+  border-color: $font-color;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: $font-family;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  span {
+    z-index: 1;
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &.green {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    border-color: $primary-green;
+    box-shadow: 0 4px 12px rgba(67, 129, 92, 0.3);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(67, 129, 92, 0.5);
+      transform: translateY(-3px);
+    }
+  }
+
+  &.blue {
+    background: linear-gradient(135deg, $secondary-background-color 0%, $secondary-optional-color 100%);
+    border-color: $secondary-background-color;
+    box-shadow: 0 4px 12px rgba(20, 57, 75, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+      border-color: $primary-green;
+      box-shadow: 0 6px 20px rgba(67, 129, 92, 0.5);
+      transform: translateY(-3px);
+    }
+  }
+}

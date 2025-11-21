@@ -1,0 +1,251 @@
+// Colors
+$primary-green: #43815c;
+$secondary-green: #70d098;
+$optional-green: #30aa82;
+$primary-background-color: #0b1d26;
+$secondary-background-color: #14394b;
+$secondary-optional-color: #1e4a60;
+$blue-color: rgb(45, 110, 174);
+$font-family: "Montserrat", sans-serif;
+$font-color: #fff;
+$paragraph-color: #e3dfdf;
+
+// Chat Interface Styles
+.chat-interface {
+  width: 90%; /* Adjusted width for better responsiveness */
+  margin: 20px auto;
+  font-family: $font-family;
+
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $primary-green;
+    color: $font-color;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .chat-container {
+    display: flex;
+    height: 600px;
+    border: 1px solid $secondary-background-color;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    background-color: $secondary-background-color;
+
+    .user-list-container {
+      flex: 1;
+      padding: 10px; /* Adjusted padding for better spacing */
+      overflow-y: auto;
+      position: relative;
+      width: 30%; /* Adjusted width to make it responsive */
+      
+      @media screen and (max-width: 640px) {
+        width: 100%; /* Adjusted width for smaller screens */
+      }
+
+      .profile-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .profile-image {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-bottom: 5px;
+        }
+
+        .profile-username {
+          color: $font-color;
+          font-weight: bold;
+        }
+      }
+
+      .search-input {
+        margin-bottom: 10px;
+
+        input[type="text"] {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid $secondary-optional-color;
+          border-radius: 20px;
+          margin-bottom: 10px;
+          color: $font-color;
+          background-color: $secondary-background-color;
+          font-family: $font-family;
+
+          &::placeholder {
+            color: $paragraph-color;
+          }
+        }
+      }
+
+      .chat-user {
+        align-items: center; /* Center vertically */
+        padding: 10px; /* Adjusted padding for better spacing */
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: lighten($primary-green, 10%);
+        }
+
+        .chat-avatar {
+          width: 40px; /* Increased size */
+          height: 40px; /* Increased size */
+          border-radius: 50%;
+          margin-right: 15px; /* Increased margin */
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; /* Adjusted alignment */
+          text-align: left; /* Align text to the left */
+
+          .chat-username {
+            color: $font-color; /* Changed color to font-color */
+            font-weight: bold;
+            font-size: 1.1em; /* Increased font size */
+            margin-bottom: 2px; /* Adjusted margin */
+          }
+
+          .last-active {
+            font-size: 0.8em;
+            color: $paragraph-color;
+          }
+        }
+      }
+
+      .settings-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; /* Adjusted width for smaller screens */
+        max-width: 300px; /* Added maximum width for smaller screens */
+        color: $font-color;
+        background-color: #43815c;
+        border-radius: 20px;
+        padding: 10px; /* Increased padding */
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $secondary-green;
+        }
+
+        .settings-text {
+          font-weight: bold;
+          padding-right: 5px;
+          color: $primary-background-color;
+        }
+
+        .settings-icon {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .chats {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      background-color: #f4f4f4;
+
+      .chat-messages-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .group-name {
+          padding: 10px;
+          background-color: $secondary-background-color;
+          font-weight: bold;
+          color: $font-color;
+          margin-bottom: 5px;
+          text-align: center;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-messages {
+          flex: 1;
+          padding: 10px;
+          overflow-y: auto;
+
+          .chat-message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 15px;
+            word-wrap: break-word;
+
+            &.user {
+              align-self: flex-start;
+              background-color: #DCF8C6;
+              color: $font-color;
+            }
+
+            &.other {
+              align-self: flex-end;
+              background-color: #E8E8E8;
+            }
+          }
+        }
+      }
+
+      .chat-input-container {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        background-color: $secondary-background-color;
+        border-top: 1px solid $secondary-optional-color;
+
+        input[type="text"] {
+          flex: 1;
+          padding: 8px;
+          border: 1px solid $secondary-optional-color;
+          border-radius: 20px;
+          color: $font-color;
+          background-color: $secondary-background-color;
+          font-family: $font-family;
+
+          &::placeholder {
+            color: $paragraph-color;
+          }
+        }
+
+        .send-message-button {
+          padding: 8px 20px;
+          border: none;
+          border-radius: 20px;
+          background: none;
+          cursor: pointer;
+
+          img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+          }
+
+          &:hover img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .user-list-container {
+      width: 100%; /* Adjusted width for smaller screens */
+    }
+  }
+}

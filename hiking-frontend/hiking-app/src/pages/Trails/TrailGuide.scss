@@ -1,0 +1,356 @@
+@import "../../styles/variables.scss";
+@import "../../styles/global.scss";
+
+.trail-guide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 29, 38, 0.95) 0%,
+    rgba(20, 57, 75, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(67, 129, 92, 0.3);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 1.25rem;
+  font-family: $font-family;
+  margin: 0;
+  min-height: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(67, 129, 92, 0.05) 0%,
+      rgba(112, 208, 152, 0.02) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 12px 35px rgba(0, 0, 0, 0.4),
+      0 0 0 2px rgba(67, 129, 92, 0.4);
+    border-color: rgba(67, 129, 92, 0.5);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Header Section
+  .guide-header {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(67, 129, 92, 0.2);
+
+    .guide-profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      .guide-image {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(67, 129, 92, 0.4);
+        box-shadow: 0 4px 15px rgba(67, 129, 92, 0.3);
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+
+        &:hover {
+          transform: scale(1.05);
+          border-color: rgba(67, 129, 92, 0.6);
+          box-shadow: 0 6px 20px rgba(67, 129, 92, 0.4);
+        }
+      }
+
+      .guide-info {
+        flex: 1;
+        min-width: 0;
+
+        h2 {
+          color: $secondary-green;
+          margin: 0 0 0.35rem 0;
+          font-size: 0.95rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.75px;
+        }
+
+        h3 {
+          color: rgba(255, 255, 255, 0.95);
+          margin: 0 0 0.15rem 0;
+          font-size: 1.05rem;
+          font-weight: 600;
+          border-bottom: 2px solid rgba(67, 129, 92, 0.5);
+          width: fit-content;
+          padding-bottom: 0.2rem;
+        }
+
+        .guide-experience {
+          color: rgba(255, 255, 255, 0.75);
+          font-size: 0.85rem;
+          margin: 0.35rem 0 0 0;
+        }
+      }
+    }
+  }
+
+  // Content Section
+  .guide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+
+    .guide-details-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 0.5rem 0;
+
+      .detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .detail-label {
+          color: $secondary-green;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 0.85rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .guide-description {
+      padding: 0.5rem 0;
+
+      p {
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 400;
+        font-size: 0.85rem;
+        margin: 0;
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    .guide-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.65rem;
+      border-top: 2px solid rgba(67, 129, 92, 0.2);
+      gap: 1rem;
+
+      .social-icons {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .icon-fb,
+      .icon-email {
+        width: 32px;
+        height: 32px;
+        color: $secondary-green;
+        border-radius: 6px;
+        padding: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: rgba(67, 129, 92, 0.1);
+        border: 1px solid rgba(67, 129, 92, 0.3);
+
+        &:hover {
+          color: $primary-green;
+          transform: translateY(-2px);
+          background: rgba(67, 129, 92, 0.2);
+          border-color: rgba(67, 129, 92, 0.5);
+          box-shadow: 0 4px 12px rgba(67, 129, 92, 0.3);
+        }
+      }
+
+      .button-book-now {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          min-width: 120px;
+          padding: 0.65rem 1.25rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .trail-guide {
+    padding: 1.5rem;
+    gap: 1.25rem;
+
+    .guide-header {
+      .guide-profile {
+        gap: 1.25rem;
+
+        .guide-image {
+          width: 90px;
+          height: 90px;
+        }
+
+        .guide-info {
+          h2 {
+            font-size: 1rem;
+          }
+
+          h3 {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+
+    .guide-content {
+      .guide-details-section {
+        gap: 1.25rem;
+      }
+
+      .guide-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+
+        .social-icons {
+          justify-content: center;
+        }
+
+        .button-book-now {
+          width: 100%;
+          justify-content: center;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .trail-guide {
+    padding: 1.25rem;
+    gap: 1.25rem;
+
+    .guide-header {
+      padding-bottom: 1.25rem;
+
+      .guide-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+
+        .guide-image {
+          width: 80px;
+          height: 80px;
+        }
+
+        .guide-info {
+          width: 100%;
+
+          h2 {
+            font-size: 0.95rem;
+            margin: 0 auto 0.5rem;
+          }
+
+          h3 {
+            font-size: 1.05rem;
+            margin: 0 auto 0.25rem;
+            text-align: center;
+          }
+
+          .guide-experience {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .guide-content {
+      gap: 1.25rem;
+
+      .guide-details-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.75rem 0;
+      }
+
+      .guide-description {
+        padding: 0.75rem 0;
+
+        p {
+          font-size: 0.9rem;
+          line-height: 1.6;
+          text-align: left;
+        }
+      }
+
+      .guide-footer {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+
+        .social-icons {
+          justify-content: center;
+          width: 100%;
+        }
+
+        .button-book-now {
+          width: 100%;
+          justify-content: center;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/global.scss";
+
+.top-rated-trail-card {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    flex: 0 0 calc(50% - 1rem);
+    height: 32rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid rgba(67, 129, 92, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 60%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        z-index: 1;
+        transition: all 0.4s ease;
+    }
+
+    .trail-card-content {
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        position: relative;
+        z-index: 2;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .trail-card-top {
+            width: 100%;
+            margin-bottom: 1.5rem;
+
+            .trail-name {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: white;
+                margin-bottom: 0.75rem;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+                line-height: 1.3;
+            }
+
+            .trail-desc {
+                display: none;
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-top: 1rem;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .learn-more-content {
+            display: none;
+            width: 100%;
+            margin-top: 1rem;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: rgba(67, 129, 92, 0.6);
+        box-shadow: 
+            0 12px 48px rgba(67, 129, 92, 0.4),
+            0 0 0 4px rgba(67, 129, 92, 0.1);
+
+        &::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.85) 100%
+            );
+        }
+
+        .trail-card-content {
+            padding: 2.5rem;
+
+            .trail-card-top {
+                .trail-name {
+                    color: $primary-green;
+                    text-shadow: 0 0 20px rgba(67, 129, 92, 0.5);
+                }
+
+                .trail-desc {
+                    display: block;
+                    animation: fadeInUp 0.4s ease-out;
+                }
+            }
+
+            .learn-more-content {
+                display: flex;
+                animation: fadeInUp 0.4s ease-out 0.1s both;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 425px) {
+    .top-rated-trail-card {
+        flex: 0 0 100%;
+    }
+}

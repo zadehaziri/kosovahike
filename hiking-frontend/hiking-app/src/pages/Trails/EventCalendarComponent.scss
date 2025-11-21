@@ -1,0 +1,289 @@
+@import "../../styles/variables.scss";
+
+.ant-radio-button-wrapper span {
+  color: black;
+}
+
+.ant-select {
+  &.ant-select-sm {
+    &.ant-select-outlined {
+      &.ant-picker-calendar-month-select {
+        &.css-dev-only-do-not-override-agnlqw {
+          &.ant-select-single {
+            &.ant-select-show-arrow {
+              color: #d8c516;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:where(.css-dev-only-do-not-override-agnlqw).ant-select-dropdown {
+  background-color: #3e3a3a;
+}
+
+.ant-picker-calendar-mini .ant-picker-calendar-header {
+  font-size: 12px;
+  font-family: $font-family;
+}
+
+.css-dev-only-do-not-override-1xg9z9n {
+  &.ant-select-single.ant-select-sm {
+    &.ant-select-selector {
+      font-family: $font-family;
+      color: #000;
+      border-color: rgb(108, 138, 110) !important;
+    }
+  }
+}
+
+.css-dev-only-do-not-override-1xg9z9n.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ) {
+  z-index: 1;
+  color: rgb(117, 178, 102);
+  background: #ffffff;
+  border-color: rgb(117, 178, 102);
+  color: #000;
+}
+
+.css-dev-only-do-not-override-1xg9z9n.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):hover {
+  color: #000000;
+}
+
+.ant-picker-cell-inner {
+  background: rgb(49, 48, 48) !important;
+  color: white !important;
+  color: #000;
+  width: 40px;
+}
+
+.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-selected .ant-picker-cell-inner:hover {
+  background: rgb(117, 178, 102) !important;
+}
+
+.ant-radio-button .ant-radio-button-checked {
+  border-color: aquamarine;
+}
+
+.ant-modal-body {
+  color: rgb(0, 0, 0) !important;
+}
+
+.ant-radio-button-wrapper .ant-radio-button-wrapper-checked {
+  position: absolute;
+  top: 0;
+  color: #000;
+  inset-inline-end: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 1;
+  border: 2px solid #ffc916;
+  border-radius: 4px;
+  content: "";
+}
+
+.ant-radio-group-small {
+  &:where(.css-dev-only-do-not-override-18tvyb7) {
+    &.ant-radio-button-wrapper:last-child {
+      border-start-end-radius: 4px;
+      border-end-end-radius: 4px;
+      color: rgb(0, 0, 0);
+    }
+
+    &.ant-radio-button-wrapper:first-child {
+      border-start-start-radius: 4px;
+      border-end-start-radius: 4px;
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
+:where(
+    .css-dev-only-do-not-override-18tvyb7
+  ).ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):first-child {
+  border-color: #43815c;
+  color: #000;
+}
+
+:where(
+    .css-dev-only-do-not-override-18tvyb7
+  ).ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):first-child {
+  border-color: #43815c;
+}
+
+:where(
+    .css-dev-only-do-not-override-18tvyb7
+  ).ant-select-single.ant-select-sm:not(.ant-select-customize-input) {
+  .ant-select-selector {
+    padding: 0 7px;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.css-dev-only-do-not-override-18tvyb7.ant-select-dropdown
+  .ant-select-item-option {
+  color: #000;
+  display: flex;
+}
+
+.ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-today
+  .ant-picker-cell-inner::before {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 1;
+  border: 1px solid #c1ae71;
+  border-radius: 4px;
+  content: "";
+}
+
+.css-dev-only-do-not-override-1xg9z9n.ant-picker-calendar
+  .ant-picker-calendar-year-panel
+  .ant-picker-calendar-header {
+  font-family: $font-family;
+}
+
+.ant-radio-button-wrapper,
+.ant-radio-button-wrapper span {
+  font-family: $font-family;
+}
+
+:where(.css-dev-only-do-not-override-agnlqw).ant-picker-calendar
+  .ant-picker-date-panel
+  .ant-picker-content
+  th {
+  box-sizing: border-box;
+  padding: 0;
+  color: rgb(62, 117, 64);
+  font-family: $font-family;
+}
+
+:where(
+    .css-dev-only-do-not-override-agnlqw
+  ).ant-select-single.ant-select-sm:not(
+    .ant-select-customize-input
+  ).ant-select-show-arrow
+  .ant-select-selection-item {
+  color: black;
+  font-family: $font-family;
+}
+
+:where(.css-dev-only-do-not-override-1obmmsh).ant-picker-calendar
+  .ant-picker-panel
+  .ant-picker-content {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.ant-select-selection-search-input {
+  color: red;
+}
+
+:where(.css-dev-only-do-not-override-1obmmsh).ant-picker-calendar-mini
+  .ant-picker-content
+  th {
+  height: auto;
+  padding: 0;
+  line-height: 18px;
+  color: rgb(0, 0, 0);
+}
+
+//modal section for joining events
+
+:where(.css-dev-only-do-not-override-18tvyb7).ant-modal .ant-modal-content {
+  height: 400px;
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  padding: 20px 24px;
+}
+
+:where(.css-dev-only-do-not-override-agnlqw).ant-btn-default {
+  color: rgb(0, 0, 0);
+}
+
+.ant-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.info-of-creating-event {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    p {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      height: 70px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: rgb(51, 150, 38);
+        outline: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ant-picker-calendar-mini .ant-picker-calendar-header {
+    font-size: 4px;
+  }
+
+  .css-dev-only-do-not-override-1xg9z9n {
+    &.ant-select-single.ant-select-sm {
+      &.ant-select-selector {
+        font-size: 8px;
+        border-color: rgb(108, 138, 110) !important;
+      }
+    }
+  }
+
+  .ant-picker-calendar {
+    height: 10px;
+  }
+
+  .css-dev-only-do-not-override-1xg9z9n.ant-radio-button-wrapper-checked:not(
+      .ant-radio-button-wrapper-disabled
+    ):hover {
+    color: #d8c516;
+  }
+}
+
+.ant-select-selection-item {
+  color: #000;
+}

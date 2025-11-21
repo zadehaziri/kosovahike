@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.completed-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background-color: $primary-background-color;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 40%;
+
+    .left-completed {
+        display: block;
+        width: 70%;
+
+        .completed-title {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .completed-desc {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+    }
+
+}

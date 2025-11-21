@@ -1,0 +1,18 @@
+@import "../../../styles/variables.scss";
+
+.text-input {
+    background-color: transparent;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid $primary-green;
+    outline: none;
+    border-radius: 30px;
+    color: $font-color;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &:focus {
+        border: 1px solid $secondary-green;
+    }
+
+}

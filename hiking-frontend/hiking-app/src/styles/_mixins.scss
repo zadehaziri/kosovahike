@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+@mixin small-screen-and-less {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin medium-screen-and-less {
+  @media screen and (max-width: 868px) {
+    @content;
+  }
+}
+
+@mixin small-screen-and-more {
+  @media screen and (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin medium-screen-and-more {
+  @media screen and (min-width: 868px) {
+    @content;
+  }
+}
+
+@mixin large-screen-and-more {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin xlarge-screen-and-more {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin xxlarge-screen-and-more {
+  @media screen and (min-width: 1290px) {
+    @content;
+  }
+}
+
+@mixin xxxlarge-screen-and-more {
+  @media screen and (min-width: 1536px) {
+    @content;
+  }
+}

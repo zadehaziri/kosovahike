@@ -1,0 +1,252 @@
+.reminder-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInOutBackground {
+  0% {
+    background-color: #f8f8f8;
+  }
+
+  50% {
+    background-color: #e6e6e6;
+  }
+
+  100% {
+    background-color: #f8f8f8;
+  }
+}
+
+.reminder-heading {
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-reminder-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.add-reminder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.form-group {
+  flex: 0 0 calc(25% - 10px);
+  height: 40px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 14px;
+}
+
+.input-field,
+.description-field,
+.date-picker {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s ease;
+  resize: none;
+}
+
+.input-field:focus,
+.description-field:focus,
+.date-picker:focus {
+  outline: none;
+  border-color: #2bb929;
+}
+
+.set-reminder-button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #2bb929;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.set-reminder-button:hover {
+  background-color: #238c22;
+}
+
+.reminder-list-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.reminder-item {
+  width: calc(50% - 10px);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.reminder-item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-item p {
+  margin: 5px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.edit-button,
+.delete-button {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.edit-button {
+  background-color: #3498db;
+}
+
+.delete-button {
+  background-color: #d9534f;
+}
+
+.edit-button:hover {
+  background-color: #2980b9;
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}
+
+#search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#search input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.search-button {
+  display: none;
+  /* Removed the search button */
+}
+
+#search input[type="text"]::placeholder {
+  color: #ccc;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .reminder-container {
+    padding: 15px;
+  }
+
+  .form-group {
+    flex: 0 0 100%;
+    margin-bottom: 10px;
+  }
+
+  .input-field,
+  .description-field,
+  .date-picker {
+    width: calc(100% - 24px);
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+
+  #search {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  #search input[type="text"] {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    /* Centering the input field */
+  }
+
+  .set-reminder-button {
+    margin-top: 60px;
+    margin-bottom: 80px;
+    font-size: 16px;
+    width: 95%;
+  }
+
+  .reminder-list {
+    justify-content: center;
+  }
+
+  .reminder-item {
+    width: calc(100% - 20px);
+  }
+
+  .add-reminder-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .reminder-heading {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}

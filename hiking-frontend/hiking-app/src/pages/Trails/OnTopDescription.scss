@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss";
+@import "../../styles/global.scss";
+
+.on-top-description-weather {
+  margin: 2.5rem 0;
+  width: 100%;
+
+  .weather-and-extra-informations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    align-items: start;
+
+    > * {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .weather-and-extra-informations {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin: 2rem 0;
+
+    .weather-and-extra-informations {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+
+      .trail-guide {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin: 1.75rem 0;
+
+    .weather-and-extra-informations {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+
+      .trail-guide {
+        grid-column: 1;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 769px) {
+//   .on-top-description-weather {
+//     flex: 1;
+//     max-width: 300px;
+//     margin: 10px 0;
+//     max-width: none;
+//     padding-right: 20px;
+//   }
+
+//   .extra-information {
+//     flex: 1;
+//     margin: 10px 0;
+//   }
+
+//   .weather-and-extra-informations {
+//     flex-direction: column;
+//   }
+// }

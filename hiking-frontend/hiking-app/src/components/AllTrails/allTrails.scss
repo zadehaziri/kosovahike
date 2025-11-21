@@ -1,0 +1,695 @@
+@import "../../styles/variables.scss";
+@import "../../styles/global.scss";
+
+.all-trails {
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 29, 38, 0.98) 0%,
+    rgba(20, 57, 75, 0.95) 50%,
+    rgba(11, 29, 38, 0.98) 100%
+  );
+  color: $font-color;
+  font-family: $font-family;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(67, 129, 92, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(112, 208, 152, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(67, 129, 92, 0.03) 2px,
+        rgba(67, 129, 92, 0.03) 4px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .main-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .loading-container,
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 0;
+    min-height: 400px;
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(67, 129, 92, 0.2);
+      border-top-color: $primary-green;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    p {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .error-container {
+    p {
+      color: rgba(255, 100, 100, 0.9);
+      font-size: 1.2rem;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .all-trails-header {
+    padding: 6rem 5% 4rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .trails-page-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, $primary-green 0%, rgba(112, 208, 152, 0.9) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    .trails-page-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .all-trails-search {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: slideUp 1.2s ease-in;
+
+      .text-input {
+        width: 100%;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        padding-right: 3.5rem;
+        background: rgba(20, 57, 75, 0.5);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(67, 129, 92, 0.3);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: $primary-green;
+          box-shadow: 0 4px 20px rgba(67, 129, 92, 0.3);
+          background: rgba(20, 57, 75, 0.7);
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        font-size: 1.3rem;
+        color: $primary-green;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .search-loading-spinner {
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(67, 129, 92, 0.2);
+        border-top-color: $primary-green;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .text-input:focus + .search-icon {
+        opacity: 0;
+      }
+    }
+  }
+
+  .all-trails-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+
+    .all-trails-container {
+      width: 100%;
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .trail-filters {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: rgba(20, 57, 75, 0.4);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(67, 129, 92, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+        .filter-lists {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+
+          .trail-category {
+            cursor: pointer;
+            position: relative;
+            list-style-type: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background: rgba(11, 29, 38, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(67, 129, 92, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(255, 255, 255, 0.8);
+
+            &.order {
+              color: $primary-green;
+              background: rgba(67, 129, 92, 0.2);
+              border-color: $primary-green;
+
+              &:hover {
+                background: rgba(67, 129, 92, 0.3);
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(67, 129, 92, 0.4);
+              }
+            }
+
+            &.active {
+              background: linear-gradient(135deg, rgba(67, 129, 92, 0.4) 0%, rgba(112, 208, 152, 0.3) 100%);
+              border-color: $primary-green;
+              color: $primary-green;
+              box-shadow: 0 4px 15px rgba(67, 129, 92, 0.4);
+            }
+
+            &:hover:not(.order) {
+              background: rgba(67, 129, 92, 0.2);
+              border-color: rgba(67, 129, 92, 0.6);
+              color: $primary-green;
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(67, 129, 92, 0.3);
+            }
+          }
+        }
+
+        .other-filters {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+
+          .dropdown {
+            background: rgba(11, 29, 38, 0.7);
+            backdrop-filter: blur(10px);
+            color: $font-color;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid rgba(67, 129, 92, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: $font-family;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 200px;
+      
+            &:hover {
+              border-color: rgba(67, 129, 92, 0.6);
+              background: rgba(11, 29, 38, 0.9);
+            }
+
+            &:focus {
+              outline: none;
+              border-color: $primary-green;
+              box-shadow: 0 4px 15px rgba(67, 129, 92, 0.3);
+            }
+          }
+      
+          .dropdown option {
+            background-color: rgba(11, 29, 38, 0.98);
+            color: $font-color;
+            padding: 0.5rem;
+          }
+        }
+
+      }
+
+      .filtered-trails {
+        width: 100%;
+
+        .trails-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+          gap: 2.5rem;
+          justify-items: center;
+          padding: 2rem 0;
+
+          .single-trail-card {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(
+              135deg,
+              rgba(11, 29, 38, 0.98) 0%,
+              rgba(20, 57, 75, 0.95) 100%
+            );
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 
+              0 10px 40px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(67, 129, 92, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(67, 129, 92, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeIn 0.6s ease-in;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                135deg,
+                rgba(67, 129, 92, 0.05) 0%,
+                transparent 50%,
+                rgba(112, 208, 152, 0.05) 100%
+              );
+              opacity: 0;
+              transition: opacity 0.4s ease;
+              z-index: 0;
+            }
+
+            &:hover {
+              transform: translateY(-10px) scale(1.02);
+              box-shadow: 
+                0 16px 60px rgba(67, 129, 92, 0.4),
+                0 0 0 2px rgba(67, 129, 92, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+              border-color: rgba(67, 129, 92, 0.8);
+
+              &::before {
+                opacity: 1;
+              }
+
+              .trail-image {
+                transform: scale(1.08);
+              }
+
+              .trail-details {
+                background: linear-gradient(135deg, rgba(67, 129, 92, 0.98) 0%, rgba(112, 208, 152, 0.95) 100%);
+                box-shadow: 0 6px 20px rgba(67, 129, 92, 0.5);
+              }
+            }
+
+            .trail-duration {
+              position: absolute;
+              top: 1.5rem;
+              left: 1.5rem;
+              background: linear-gradient(135deg, rgba(67, 129, 92, 0.98) 0%, rgba(112, 208, 152, 0.95) 100%);
+              padding: 0.625rem 1.25rem;
+              border-radius: 10px;
+              font-weight: 700;
+              font-size: 0.9rem;
+              color: white;
+              box-shadow: 
+                0 4px 15px rgba(67, 129, 92, 0.5),
+                0 0 0 2px rgba(255, 255, 255, 0.1);
+              z-index: 5;
+            }
+
+            .trail-image {
+              cursor: pointer;
+              width: 100%;
+              height: 16rem;
+              object-fit: cover;
+              border-radius: 18px 18px 0 0;
+              transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+              }
+            }
+
+            .trail-details {
+              position: absolute;
+              top: 13.5rem;
+              left: 1.5rem;
+              right: 1.5rem;
+              overflow: hidden;
+              background: linear-gradient(135deg, rgba(67, 129, 92, 0.9) 0%, rgba(112, 208, 152, 0.8) 100%);
+              backdrop-filter: blur(10px);
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              padding: 1.5rem 1.25rem;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+              transition: all 0.3s ease;
+
+              .trail-detail {
+                display: flex;
+                flex-direction: column;
+
+                .detail-text {
+                  margin-bottom: 1rem;
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  color: $font-color;
+
+                  &.difficulty {
+                    text-transform: capitalize;
+                  }
+                }
+
+                .detail-name {
+                  font-size: 0.95rem;
+                  color: $paragraph-color;
+                }
+              }
+            }
+
+            .trail-description {
+              margin-top: 4.5rem;
+              padding: 2rem;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              position: relative;
+              z-index: 1;
+
+              .trail-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, $primary-green 0%, rgba(112, 208, 152, 0.9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                line-height: 1.3;
+                text-transform: capitalize;
+              }
+
+              .trail-desc {
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 1.6;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              }
+
+              .bottom-trail-details {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                .trail-location {
+                  color: $primary-green;
+                  display: flex;
+                  align-items: center;
+                  font-weight: 500;
+                  font-size: 0.9rem;
+  
+                  .location-icon {
+                    font-size: 1.25rem;
+                    margin-right: 0.5rem;
+                  }
+                }
+
+                .trail-favorite {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: center;
+
+                  .favorite-icon {
+                    cursor: pointer;
+                    width: 28px;
+                    height: 28px;
+                    color: rgba(255, 255, 255, 0.4);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                      transform: scale(1.2);
+                    }
+                  }
+  
+                  .favorite {
+                    color: $primary-green;
+                    filter: drop-shadow(0 0 8px rgba(67, 129, 92, 0.6));
+                  }
+                }
+              }
+            }
+          }
+
+          .load-more-btn-container {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+
+            .basic-btn {
+              padding: 1rem 2.5rem;
+              font-size: 1.1rem;
+              font-weight: 700;
+              border-radius: 12px;
+              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+              &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(67, 129, 92, 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .all-trails {
+    .all-trails-header {
+      padding: 4rem 5% 3rem;
+
+      .trails-page-title {
+        font-size: 2.5rem;
+      }
+
+      .trails-page-subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    .all-trails-content {
+      .all-trails-container {
+        .trail-filters {
+          flex-direction: column;
+          gap: 1.5rem;
+          padding: 1.5rem;
+
+          .filter-lists {
+            justify-content: center;
+          }
+
+          .other-filters {
+            margin-top: 0;
+            flex-direction: column;
+            width: 100%;
+
+            .dropdown {
+              margin-bottom: 1rem;
+              width: 100%;
+            }
+          }
+        }
+        .filtered-trails {
+          .trails-container {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .all-trails {
+    .all-trails-header {
+      padding: 3rem 4% 2rem;
+
+      .trails-page-title {
+        font-size: 2rem;
+      }
+
+      .trails-page-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .all-trails-search {
+        width: 100%;
+      }
+    }
+
+    .all-trails-content {
+      padding: 0 4%;
+
+      .all-trails-container {
+        padding-top: 2rem;
+
+        .trail-filters {
+          padding: 1.25rem;
+          gap: 1rem;
+
+          .filter-lists {
+            gap: 0.75rem;
+
+            .trail-category {
+              font-size: 0.9rem;
+              padding: 0.625rem 1.25rem;
+            }
+          }
+
+          .other-filters {
+            .dropdown {
+              font-size: 0.9rem;
+              padding: 0.75rem 1rem;
+            }
+          }
+        }
+
+        .filtered-trails {
+          .trails-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1rem 0;
+
+            .single-trail-card {
+              max-width: 100%;
+
+              .trail-image {
+                height: 14rem;
+              }
+
+              .trail-details {
+                top: 11.5rem;
+                padding: 1.25rem 1rem;
+
+                .trail-detail {
+                  .detail-text {
+                    font-size: 1rem;
+                  }
+
+                  .detail-name {
+                    font-size: 0.85rem;
+                  }
+                }
+              }
+
+              .trail-description {
+                margin-top: 4rem;
+                padding: 1.5rem;
+
+                .trail-title {
+                  font-size: 1.3rem;
+                }
+
+                .trail-desc {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

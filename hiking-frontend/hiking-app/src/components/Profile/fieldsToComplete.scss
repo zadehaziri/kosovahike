@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+
+.fields-to-complete-container {
+    margin-top: 1.5rem;
+    width: 100%;
+    height: inherit;
+
+    .fields-to-complete-content {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(67, 129, 92, 0.5) rgba(11, 29, 38, 0.3);
+        padding-bottom: 0.5rem;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgba(11, 29, 38, 0.3);
+            border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(67, 129, 92, 0.5);
+            border-radius: 3px;
+
+            &:hover {
+                background: rgba(67, 129, 92, 0.7);
+            }
+        }
+    }
+}

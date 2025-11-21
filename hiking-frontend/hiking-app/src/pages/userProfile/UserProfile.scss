@@ -1,0 +1,81 @@
+@import '../../styles/global.scss';
+
+.user-profile-container {
+  background: rgba(11, 29, 38, 0.95);
+  backdrop-filter: blur(20px);
+  color: $font-color;
+  font-family: $font-family;
+  padding: 2rem;
+  position: relative;
+  top: -80px;
+  min-height: calc(100vh - 80px);
+
+  @include small-screen-and-more {
+    padding: 3rem 4rem;
+  }
+
+  @include medium-screen-and-more {
+    padding: 4rem 5rem;
+  }
+
+  .user-profile-content {
+    width: 100%;
+    margin-top: 40px;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(15, 32, 41, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    .left-up-content {
+      width: 20%;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+      background-color: rgba(11, 29, 38, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(180deg, transparent 0%, rgba(67, 129, 92, 0.5) 50%, transparent 100%);
+      }
+    }
+
+    .right-up-content {
+      padding: 2.5rem;
+      width: 80%;
+      background-color: rgba(11, 29, 38, 0.5);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .user-profile-container {
+    .user-profile-content {
+      flex-direction: column;
+
+      .left-up-content,
+      .right-up-content {
+        width: 100%;
+      }
+
+      .left-up-content {
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}

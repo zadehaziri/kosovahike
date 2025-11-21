@@ -1,0 +1,11 @@
+# MongoDB Atlas Connection String
+# Vendos këtë në .env file
+
+# ⚠️ IMPORTANT: Zëvendëso USERNAME me username-in e saktë nga MongoDB Atlas
+# Nëse username-i është "zadehaziril3_db_user", përdor atë
+# Nëse username-i është "zadehaziri13_db_user", përdor atë
+
+MONGO_URI=mongodb+srv://USERNAME:JtUh0zzKzbhjWwMw@kosovahike-cluster.ennc6rt.mongodb.net/kosovahike?retryWrites=true&w=majority&appName=KosovaHike-Cluster
+
+# Zëvendëso USERNAME me username-in real nga MongoDB Atlas Database Access
+

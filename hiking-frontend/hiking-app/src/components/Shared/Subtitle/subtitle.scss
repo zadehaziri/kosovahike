@@ -1,0 +1,78 @@
+@import "../../../styles//variables.scss";
+
+.sub-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    span {
+        font-size: 1.3rem;
+        color:  $font-color;
+        position: relative;
+        padding: 1.5rem 0;
+
+        &.bothLines {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        &.afterLine {
+            padding-right: 2rem;
+        }
+
+        &.beforeLine {
+            padding-left: 2rem;
+        }
+    }
+
+    .bothLines {
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1.8rem;
+            height: 4px;
+            background: $primary-green;
+            border-radius: 5px;
+            left: -10px;
+            top: 50%;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1.8rem;
+            height: 4px;
+            background: $primary-green;
+            border-radius: 5px;
+            right: -10px;
+            top: 50%;
+        }
+    }
+
+    .beforeLine {
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1.8rem;
+            height: 4px;
+            background: $primary-green;
+            border-radius: 5px;
+            left: -5px;
+            top: 50%;
+        }
+      
+    }
+
+    .afterLine {
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1.8rem;
+            height: 4px;
+            background: $primary-green;
+            border-radius: 5px;
+            right: -5px;
+            top: 50%;
+        }
+    }
+}

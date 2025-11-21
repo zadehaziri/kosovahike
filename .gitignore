@@ -1,8 +1,14 @@
 # Dependencies
 node_modules/
+**/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Cache files (especially webpack/vite caches that can be large)
+.cache/
+**/.cache/
+*.pack
 
 # Environment variables
 .env
@@ -51,3 +57,4 @@ coverage/
 .cache/
 *.pem
 
+node_modules/

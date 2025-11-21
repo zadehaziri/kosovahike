@@ -1,0 +1,521 @@
+@import "../../../../../styles//variables.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+.event-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  color: white;
+  font-family: $font-family;
+  background-image: url("../../Assets/bg-events.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $secondary-background-color;
+  box-shadow: 0 8px 32px 0 rgb(18, 36, 49);
+
+  .incoming-events-title {
+    width: 100%;
+  }
+
+  .incoming-events-title {
+    font-family: "Rakkas", serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.88);
+    background-color: $primary-background-color;
+    box-shadow: 0 2px 32px 0 rgb(255, 255, 255);
+    letter-spacing: 3px;
+  }
+
+  .event-card {
+    width: calc(20% - 10px);
+    // border: 1px solid rgba(204, 204, 204, 0.778);
+    border: 1px solid rgba(245, 222, 179, 0.344);
+    // border: 1px solid rgb(53, 122, 110);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-family: $font-family;
+    background-color: rgba(49, 102, 95, 0.537);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(182, 171, 171, 0.5);
+
+    .card-of-date-and-time-events {
+      background: rgb(28 31 31 / 38%);
+      box-shadow: 0 8px 32px 0 rgba(38, 44, 135, 0.234);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      height: 100px;
+      font-size: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .attendees-events-incoming {
+      display: flex;
+      flex-direction: row;
+      font-size: 50px;
+    }
+
+    .event-countdown-ss {
+      font-size: 30px;
+      font-weight: 400;
+      margin-left: 25px;
+      margin-top: 10px;
+      color: $optional-green;
+    }
+
+    .event-title-incoming-events {
+      font-size: 25px;
+      text-align: center;
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      border-bottom: 1px solid rgb(142, 158, 156);
+    }
+
+    .event-time-incoming {
+      margin-top: 10px;
+    }
+
+    .event-creator-incoming {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgb(142, 158, 156);
+      padding-bottom: 10px;
+    }
+
+    .organizer-icon {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .icon-of-organizer {
+      margin-right: 10px;
+    }
+
+    .organizer-details {
+      margin-left: 10px;
+      p {
+        font-weight: 700;
+        font-size: 25px;
+      }
+    }
+
+    .event-attendees {
+      margin-top: 20px;
+      font-weight: 600;
+      font-weight: bold;
+    }
+
+    .event-attendees span {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .btn-container-incoming-events {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      .basic-btn {
+        margin-bottom: 10px;
+        width: 100%;
+        background-color: rgb(67, 109, 92);
+        color: white;
+        font-weight: 800;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.event-countdown-incoming-events {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+
+  .count-down-days-incoming-events,
+  .count-down-hours-incoming-events,
+  .count-down-minutes-incoming-events {
+    justify-content: space-around;
+    // background-color: #2b806b6a;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 80px;
+    min-width: 80px;
+    height: 70px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .event-countdown-ss-incoming-events {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .text-of-days-hours-incoming-events {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 10px;
+    // font-weight: 14px;
+  }
+}
+
+.nearest-event {
+  background-image: url("../../Assets/bg-events.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  // position: relative;
+  margin-top: -100px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+  font-family: $font-family;
+  .join-nearest-event-title {
+    color: rgb(255, 255, 255);
+    margin-left: 70px;
+    width: 500px;
+    font-family: "Rakkas", serif;
+    font-weight: 400;
+    font-style: normal;
+    h1 {
+      font-size: 30px;
+      padding-top: 280px;
+      color: rgba(204, 204, 204, 0.718);
+    }
+    h2 {
+      font-size: 20px;
+      color: rgba(204, 204, 204, 0.718);
+    }
+  }
+  .event-card-nearest-event {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    margin-right: 300px;
+    height: 400px;
+    align-items: flex-end;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 450px;
+    margin-left: 500px;
+  }
+}
+
+.event-time-start {
+  justify-content: center;
+
+  .start-time {
+    color: rgb(187, 184, 184);
+  }
+  .start-time-end {
+    color: rgb(187, 184, 184);
+    text-align: end;
+  }
+  .start-time-number {
+    font-size: 20px;
+  }
+}
+
+.event-date-time-day-month {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 0;
+  align-items: flex-end;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.date-month-and-day {
+  height: 100px;
+  .event-month-month {
+    font-size: 20px;
+    color: rgb(187, 184, 184);
+    text-align: center;
+  }
+  .event-month-calendar {
+    font-size: 45px;
+    text-align: center;
+  }
+
+  .event-month-week {
+    color: rgb(187, 184, 184);
+  }
+}
+
+// .event-date,
+// .event-time {
+//   background-color: lightblue;
+//   padding: 5px;
+//   border-radius: 5px;
+//   margin-bottom: 5px;
+// }
+
+// .event-countdown {
+//   // background-color: lightgreen;
+
+//   padding: 5px;
+//   border-radius: 5px;
+//   margin-bottom: 5px;
+// }
+
+.countdown-part {
+  margin-right: 5px;
+}
+
+.event-title-nearest-div {
+  width: 100%;
+}
+
+.event-title-nearest {
+  color: rgb(161, 158, 158);
+  font-weight: 600;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  max-width: 400px;
+  min-width: 400px;
+  text-align: center;
+}
+
+.second-section-nearest {
+  width: 100%;
+  .organizer-and-attendees {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    .organizer-info,
+    .attendees-info {
+      flex: 1;
+
+      p {
+        margin: 0;
+        align-self: flex-end;
+        font-weight: bold;
+      }
+    }
+
+    .organizer-info {
+      margin-right: 10px;
+
+      .event-creator {
+        font-weight: bold;
+      }
+    }
+
+    .attendees-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .event-attendees-incoming-events {
+        min-height: 50px;
+        max-height: 50px;
+        font-weight: bold;
+        align-self: flex-end;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+.btn-container-of-nearest-event {
+  // display: flex;
+  justify-content: space-between;
+}
+
+.button-delete-and-update {
+  display: flex;
+  justify-content: space-between;
+  width: 390px;
+  // margin-left: 30px;
+  padding: 10px;
+
+  .basic-btn {
+    width: 100%;
+    background-color: rgb(110, 162, 141);
+    border-radius: 9px;
+    height: 40px;
+  }
+
+  .update-delete-btn {
+    width: 100%;
+
+    .button-update {
+      background-color: aqua;
+    }
+    .update-delete {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+  }
+}
+
+.join-leave {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.basic-btn.green.join-leave-btn {
+  background-color: rgb(110, 162, 141);
+  border-radius: 9px;
+  height: 40px;
+  width: 360px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.basic-btn.green.join-leave-btn:hover {
+  background-color: #fcfcfc;
+  color: rgb(0, 0, 0);
+  width: 100%;
+}
+
+.event-countdown {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: space-evenly;
+  .count-down-days {
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 60px;
+    background-color: antiquewhite;
+  }
+
+  .text-of-days-hours {
+    font-size: 10px;
+  }
+
+  .count-down-hours {
+    font-size: 30px;
+    width: 20%;
+    height: 60px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  .count-down-minutes {
+    font-size: 30px;
+    width: 20%;
+    height: 60px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  .count-down-seconds {
+    font-size: 30px;
+    width: 20%;
+    height: 60px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nearest-event {
+    .event-card-nearest-event {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-right: 15px;
+
+      max-width: 400px;
+      min-width: 400px;
+    }
+
+    .incoming-events-title {
+      justify-content: center;
+      align-items: center;
+    }
+    .date-month-and-day .event-month-calendar {
+      font-size: 25px;
+      text-align: center;
+    }
+    .count-down-days-incoming-events {
+      width: 400px;
+    }
+    .event-countdown .count-down-days,
+    .count-down-hours,
+    .count-down-minutes,
+    .count-down-seconds {
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+  .event-card-container {
+    width: 2000;
+    display: flex;
+    flex-direction: column;
+    .incoming-events-title {
+      font-size: 10px;
+    }
+    .card-of-date-and-time-events {
+      max-height: 100px;
+      width: 300px;
+      .attendees-events-incoming {
+        width: 10px;
+        height: 10px;
+        margin-right: 60px;
+      }
+    }
+    .event-creator-incoming {
+      .organizer-details {
+        font-size: 10px;
+      }
+      .organizer-icon {
+        h2 {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 360px;
+      min-width: 369px;
+      margin: 0 auto;
+    }
+  }
+}

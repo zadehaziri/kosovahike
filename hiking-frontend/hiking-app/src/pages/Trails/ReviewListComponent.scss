@@ -1,0 +1,296 @@
+@import "../../styles/variables.scss";
+@import "../../styles/global.scss";
+
+// Simple Note/Paper Design
+.add-review-single-trail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+
+  button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: $secondary-green;
+    border: none;
+    color: rgba(11, 29, 38, 0.95);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: $primary-green;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(67, 129, 92, 0.4);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0;
+    margin-bottom: 2.5rem;
+
+    button {
+      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.reviews-all-trail-single {
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 0 2rem;
+
+  @media (max-width: 1024px) {
+    margin-top: 2.5rem;
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .all-reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .average-rating {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(112, 208, 152, 0.3);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $secondary-green;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+
+        p {
+          font-size: 1.75rem;
+        }
+      }
+    }
+
+    .review-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.75rem;
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .card {
+        width: 100%;
+        min-height: auto;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(112, 208, 152, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 4px 16px rgba(67, 129, 92, 0.3);
+          border-color: rgba(112, 208, 152, 0.4);
+        }
+
+        .user-data {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 1.5rem;
+          border: none;
+          border-bottom: 1px solid rgba(112, 208, 152, 0.2);
+          padding-bottom: 1rem;
+
+          .user-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              border: 2px solid rgba(112, 208, 152, 0.3);
+              object-fit: cover;
+            }
+
+            h4 {
+              margin: 0;
+              font-size: 1rem;
+              color: rgba(255, 255, 255, 0.9);
+              font-weight: 600;
+              text-transform: capitalize;
+            }
+          }
+
+          .user-buttons {
+            display: flex;
+            gap: 0.5rem;
+
+            button {
+              background: transparent;
+              border: 1px solid rgba(112, 208, 152, 0.3);
+              border-radius: 4px;
+              cursor: pointer;
+              font-size: 0.9rem;
+              color: rgba(112, 208, 152, 0.8);
+              padding: 0.4rem 0.6rem;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background: rgba(112, 208, 152, 0.1);
+                border-color: rgba(112, 208, 152, 0.5);
+                color: $secondary-green;
+              }
+            }
+          }
+        }
+
+        .user-rating {
+          padding: 0.75rem 0;
+          font-size: 1rem;
+          position: relative;
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 0.5rem;
+        }
+
+        .text-review-section {
+          margin-top: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          flex-grow: 1;
+          position: relative;
+          padding: 0;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+
+          .quote-left-comment {
+            display: flex;
+            justify-content: flex-start;
+            color: rgba(112, 208, 152, 0.4);
+            font-size: 1.5rem;
+            opacity: 0.6;
+          }
+
+          .quote-right-comment {
+            display: flex;
+            justify-content: flex-end;
+            color: rgba(112, 208, 152, 0.4);
+            font-size: 1.5rem;
+            opacity: 0.6;
+          }
+
+          .user-comment {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 0;
+            flex-grow: 1;
+            min-height: auto;
+
+            p {
+              margin: 0;
+              font-size: 0.95rem;
+              font-weight: 400;
+              color: rgba(255, 255, 255, 0.8);
+              line-height: 1.7;
+              text-align: center;
+              font-style: italic;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .all-reviews {
+      gap: 2rem;
+
+      .review-container {
+        gap: 1.5rem;
+
+        .card {
+          padding: 1.5rem;
+
+          .user-data {
+            .user-left {
+              gap: 0.75rem;
+
+              img {
+                width: 45px;
+                height: 45px;
+              }
+
+              h4 {
+                font-size: 0.95rem;
+              }
+            }
+
+            .user-buttons button {
+              padding: 0.35rem 0.5rem;
+              font-size: 0.85rem;
+            }
+          }
+
+          .text-review-section {
+
+            .quote-left-comment,
+            .quote-right-comment {
+              font-size: 1.25rem;
+            }
+
+            .user-comment p {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

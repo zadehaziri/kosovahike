@@ -1,0 +1,132 @@
+@import "../../styles/variables.scss";
+
+.profile-navbar {
+    padding: 1rem 0;
+    
+    .profile-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .profile-link {
+            list-style-type: none;
+            margin: 0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            padding: 0.875rem 1.25rem;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: linear-gradient(180deg, $primary-green, $optional-green);
+                transform: scaleY(0);
+                transition: transform 0.3s ease;
+            }
+
+            svg {
+                font-size: 1.2rem;
+                color: rgba(255, 255, 255, 0.7);
+                transition: all 0.3s ease;
+            }
+
+            a, span {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.8);
+                margin-left: 0;
+                transition: all 0.3s ease-in-out;
+                display: block;
+                font-weight: 500;
+            }
+
+            &:hover {
+                background-color: rgba(67, 129, 92, 0.2);
+                transform: translateX(5px);
+                border-left-color: $primary-green;
+
+                &::before {
+                    transform: scaleY(1);
+                }
+
+                svg {
+                    color: $primary-green;
+                }
+
+                a, span {
+                    color: $primary-green;
+                }
+            }
+
+            &.active {
+                background-color: rgba(67, 129, 92, 0.25);
+                border-left-color: $primary-green;
+                
+                &::before {
+                    transform: scaleY(1);
+                }
+
+                svg {
+                    color: $primary-green;
+                }
+
+                a, span {
+                    color: $primary-green;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .profile-burger-menu {
+        display: none;
+    }
+}
+
+@media (max-width:1024px) {
+    .profile-navbar {
+        position: relative;
+
+        .profile-links {
+            opacity: 0;
+            overflow: hidden;
+            height: 1.2rem;
+            transition: all 0.3s ease-in-out;
+            
+            &.open {
+                height: auto;
+                opacity: 1;
+            }
+        }
+
+        .profile-burger-menu {
+            display: flex;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease-in-out;
+
+            &.rotate {
+                transform: rotate(-45deg);
+            }
+
+            &:hover {
+                color: $primary-green;
+            }
+        }
+    }
+}

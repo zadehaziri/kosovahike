@@ -1,0 +1,239 @@
+@import '../../styles/variables.scss';
+li {
+    list-style: none;
+    width: calc((100% / 2));
+}
+.parent-div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: $primary-background-color;
+}
+.left-content{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+.right-content{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1.0625rem 1.875rem;
+}
+.main-div {
+    font-family: $font-family;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.0625rem 1.875rem;
+    width: 100%;
+}
+.favorite {
+    margin-right: 2rem;
+}
+
+.img-box {
+    width: 100%;
+    height: auto;
+    border-radius: 0.7rem;
+}
+.image-placeholder {
+    position: relative; 
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.information-box {
+    position: absolute;
+    background-color: $primary-green;
+    color: $font-color;
+    padding: 2rem;
+    top: 11.5rem; 
+    left: 0;
+    width: calc(100% - 3rem);
+    height: 25%;
+    border-radius: 3px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    display: flex;
+    line-height: 1.875rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 6.5rem 0 0 0;
+    padding: 1.0625rem 1.875rem;
+}
+
+.information-box .information-span {
+    padding: 0.313rem;
+    &.text{
+        color: $font-color;
+    }
+}
+.information-flex{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+}
+.under-information-box{
+    margin-top: 4.235rem;
+}
+.title-class{
+    color: $font-color;
+    font-size: 1.563rem;
+    font-weight: 700;
+}
+.paragraph-class{
+    color: $paragraph-color;
+    font-size: 0.938rem;
+    padding: 15px 0;
+}
+.location-class{
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    color: $primary-green;
+}
+.icon-class{
+    margin-right: 1rem;
+}
+.event-title{
+    color: $primary-green;
+    font-size: 1.875rem;
+    line-height: 5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.219rem;
+}
+.event-undertitle{
+    color: $secondary-green;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0 2.813rem 0 0;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: padding 0.5s;
+}
+.event-description{
+    color: #fff;
+    padding-top: 3.125rem;
+    line-height: 1.563rem;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 50%;
+}
+.join-event-btn{
+    padding-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//------- MEDIA QUERY ----------
+
+@media screen and (max-width: 1280px) {
+    .parent-div{
+        flex-direction: column;
+        padding: 1.25rem;
+        li{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 870px) {
+    .information-box{
+        margin-top: 4.5rem;
+    }
+    .under-information-box{
+        margin-top: 4.5rem;
+    }
+    .right-content{
+        justify-content: left;
+        padding: 1.0625rem 1.875rem;
+    }
+    .left-content{
+        justify-content: left;
+    }
+}
+@media screen and (max-width: 430px) {
+    .parent-div{
+        width: 100%;
+        padding: 0.985rem;
+
+    }
+    .main-div{
+        width: 100%;
+    }
+    .image-placeholder{
+        width: 28rem;
+        height: 18rem;
+    }
+    .information-box{
+        position: absolute;
+        left: 0rem;
+        top: 16.625rem;
+    }
+    .information-box .information-span{
+        padding: 0px;
+    }
+    .title-class{
+        overflow: hidden;
+    }
+    .under-information-box{
+        margin-top: 2.813rem;
+    }
+}
+@media screen and (max-width: 375px) {
+    .parent-div{
+        width: 100%;
+
+    }
+    .main-div{
+        width: 26rem;
+    }
+    .image-placeholder{
+        width: 25rem;
+        height: 15rem;
+    }
+    .information-box{
+        position: absolute;
+        left: 0rem;
+        top: 14.625rem;
+    }
+    .information-box .information-span{
+        padding: 0px;
+    }
+    .under-information-box{
+        margin-top: 2.813rem;
+    }
+}
+@media screen and (max-width: 320px) {
+    .information-box{
+        top: 10rem;
+    }
+    .right-content{
+        justify-content: center;
+        align-items: center;
+    }
+    .event-undertitle{
+        padding: 0;
+    }
+}

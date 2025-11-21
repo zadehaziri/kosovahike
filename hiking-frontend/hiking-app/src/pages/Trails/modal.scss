@@ -1,0 +1,61 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: #000;
+
+  .content-modal {
+    background-color: white;
+    position: relative;
+    max-width: 80%;
+    min-width: 40%;
+    max-height: 90vh;
+    padding: 30px 15px;
+    border-radius: 4px;
+    // overflow-y: auto;
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .review-btn {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    color: #f0f0f0;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+
+    &.close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    // &:hover {
+    //   background-color: #07b310;
+    // }
+  }
+
+  .wrapper-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+}
+
+:where(.css-dev-only-do-not-override-18tvyb7).ant-input {
+  color: #000;
+}

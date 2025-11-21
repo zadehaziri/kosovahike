@@ -1,0 +1,353 @@
+@import '../../styles/global.scss';
+
+.hamburgerMenu {
+  height: 0;
+  @include small-screen-and-more {
+    display: none;
+  }
+}
+@include small-screen-and-less {
+  #menuToggle {
+    opacity: 0;
+  }
+  .checkedMenu + .menuBtn > span {
+    transform: rotate(45deg);
+  }
+  .checkedMenu + .menuBtn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  .checkedMenu + .menuBtn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .checkedMenu ~ .menuBox {
+    left: 0 !important;
+  }
+  .menuBtn {
+    position: fixed;
+    top: 55px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .checkedMenu + .scrolledColor > span {
+    transform: rotate(45deg);
+  }
+  .checkedMenu + .scrolledColor > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  .checkedMenu + .scrolledColor > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  .scrolledColor {
+    position: fixed;
+    top: 55px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .scrolledColor > span,
+  .scrolledColor > span::before,
+  .scrolledColor > span::after {
+    background-color: #355467;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition-duration: 0.25s;
+  }
+
+  .scrolledColor > span::after {
+    width: 80%;
+  }
+
+  .checkedMenu ~ .scrolledColor > span,
+  .checkedMenu ~ .scrolledColor > span::before,
+  .checkedMenu ~ .scrolledColor > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition-duration: 0.25s;
+  }
+  .scrolledColor > span::before {
+    content: '';
+    top: -8px;
+  }
+  .scrolledColor > span::after {
+    content: '';
+    top: 8px;
+    right: 0;
+  }
+
+  .menuBtn > span,
+  .menuBtn > span::before,
+  .menuBtn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition-duration: 0.25s;
+  }
+
+  .menuBtn > span::after {
+    width: 80%;
+  }
+
+  .checkedMenu ~ .menuBtn > span,
+  .checkedMenu ~ .menuBtn > span::before,
+  .checkedMenu ~ .menuBtn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition-duration: 0.25s;
+  }
+  .menuBtn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menuBtn > span::after {
+    content: '';
+    top: 8px;
+    right: 0;
+  }
+  .menuBox {
+    background-color: rgba(11, 29, 38, 0.99);
+    backdrop-filter: blur(20px);
+    color: #ffffff;
+    z-index: 2020;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition-duration: 0.4s;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .quasiLogo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: $primary-green;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .items {
+    gap: 5px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .menuItem {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menuItem:hover {
+    background-color: #cfd8dc;
+  }
+
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    background-color: rgba(11, 29, 38, 0.99);
+    flex-shrink: 0;
+
+    img {
+      height: 60px;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+
+      @include small-screen-and-more {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .languages {
+    margin-top: 2.5rem;
+    padding: 2px;
+  }
+
+  .title {
+    margin-top: 1.5rem;
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .sectionTitle {
+    font-family: $font-family;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding: 0 16px;
+  }
+
+  .navLinks {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 18px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .navLinks > * {
+    font-family: $font-family;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    &:hover {
+      background-color: rgba(67, 129, 92, 0.2);
+      color: $primary-green;
+      transform: translateX(5px);
+    }
+    
+    li {
+      color: inherit;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+  }
+  .logoutSection {
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .logoutButton {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: transparent;
+    border: 2px solid $primary-green;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: $font-family;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: $primary-green;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(67, 129, 92, 0.4);
+    }
+  }
+
+  .footer {
+    margin-bottom: 30px;
+    margin-top: auto;
+    justify-self: end;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    p,
+    span {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .mail {
+      text-decoration: underline;
+      color: $primary-green;
+      
+      &:hover {
+        color: $optional-green;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary-green;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $optional-green;
+      }
+    }
+  }
+
+  .footer > * {
+    margin-bottom: 10px;
+  }
+}

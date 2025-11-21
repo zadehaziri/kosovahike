@@ -1,0 +1,31 @@
+# Kopjo këtë file si .env në hiking-backend/
+# Dhe plotëso me credentials të tua private
+
+# MongoDB Connection String
+# Për lokal: mongodb://localhost:27017/kosovahike
+# Për Atlas: mongodb+srv://username:password@cluster.mongodb.net/kosovahike?retryWrites=true&w=majority
+MONGO_URI=mongodb://localhost:27017/kosovahike
+
+# Application Secret Key (ndryshoje me një secret key të fortë!)
+APP_SECRET=your_super_secret_key_change_this
+
+# Server Port
+PORT=5000
+
+# Token Expiration (në orë)
+TOKEN_EXPIRE=24
+
+# API URL
+API_URL=http://127.0.0.1
+
+# Token Prefix
+TOKEN_PREFIX=JWT 
+
+# Email Configuration (për Gmail)
+# Për të aktivizuar email, krijo një "App Password" në Google Account:
+# 1. Shko te: https://myaccount.google.com/apppasswords
+# 2. Krijoni një App Password për "Mail"
+# 3. Vendosni password-in këtu
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-gmail-app-password
+

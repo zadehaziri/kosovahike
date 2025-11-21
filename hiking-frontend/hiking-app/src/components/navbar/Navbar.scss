@@ -1,0 +1,184 @@
+@import "../../styles/global.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Righteous&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Righteous&display=swap");
+.scrolled {
+  background: rgba(11, 29, 38, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: sticky;
+  top: 0;
+  padding: 20px 30px;
+  color: rgba(255, 255, 255, 0.95);
+  z-index: 2010;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include small-screen-and-more {
+    padding: 15px 30px;
+  }
+}
+
+.navContainer {
+  position: sticky;
+  top: 0;
+  padding: 25px 15px;
+  color: rgba(255, 255, 255, 0.95);
+  z-index: 2000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  background: linear-gradient(180deg, rgba(11, 29, 38, 0.8) 0%, rgba(11, 29, 38, 0.4) 100%);
+  backdrop-filter: blur(10px);
+
+  &.hidden {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navContainer.scrolled {
+    display: none;
+  }
+
+  @include small-screen-and-more {
+    padding: 20px 20px;
+  }
+  @include medium-screen-and-more {
+    padding: 25px 30px;
+  }
+}
+
+  .navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-family: $font-family;
+    font-size: 16px;
+    font-weight: 500;
+    @include small-screen-and-more {
+      font-size: 18px;
+    }
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px 0;
+    
+    &:hover {
+      color: $primary-green;
+      transform: translateY(-2px);
+    }
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    background: linear-gradient(90deg, $primary-green 0%, $secondary-green 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  a:hover::after {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .kosova-name {
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+  }
+
+  .hike-name {
+    color: rgb(81, 153, 182);
+    color: rgb(255, 255, 255);
+  }
+  .quasi-logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    gap: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 8px rgba(67, 129, 92, 0.5));
+    }
+  }
+  .quasi-logo a {
+    text-decoration: none;
+  }
+
+  .quasi-logo.no-hover:hover::after {
+    text-decoration: none !important;
+  }
+
+  a.quasi-logo.no-hover:hover::after {
+    text-decoration: none !important;
+  }
+
+  .auth-links {
+    display: none;
+    align-items: baseline;
+    margin-left: auto;
+    gap: 2rem;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+
+    @include small-screen-and-more {
+      display: flex;
+      gap: 3rem;
+    }
+    
+    @include medium-screen-and-more {
+      gap: 5rem;
+    }
+    
+    @media (max-width: 768px) {
+      gap: 1.5rem;
+      font-size: 14px;
+    }
+  }
+
+  #logged-links {
+    margin-right: 40px;
+  }
+
+  .sign-up {
+    border: 2px solid $primary-green;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    background: rgba(67, 129, 92, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      background: $primary-green;
+      border-color: $primary-green;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(67, 129, 92, 0.4);
+    }
+  }
+}
