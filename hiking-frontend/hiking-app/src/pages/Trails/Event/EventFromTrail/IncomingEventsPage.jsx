@@ -54,6 +54,7 @@ const IncomingEventsPage = () => {
       console.error("Error fetching events:", error);
       message.error("Failed to fetch events");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getEventAPIByEventMode]);
 
   const handleDeleteEvent = async (eventId) => {
