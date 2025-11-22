@@ -8,7 +8,7 @@ import IncomingEventsPage from "./Event/EventFromTrail/IncomingEventsPage";
 import moment from "moment/moment";
 import { updateEvents } from "../../redux/users/loggedUserSlice";
 import { useDispatch } from "react-redux";
-import { config } from "../../../config";
+import { config } from "../../config";
 
 const EventCalendarComponent = ({ trail }) => {
   const [modalVisible, setModalVisible] = useState(false);
