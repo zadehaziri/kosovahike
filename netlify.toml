@@ -1,0 +1,5 @@
+[build]
+  base = "hiking-frontend/hiking-app"
+  publish = "build"
+  command = "npm install && npm run build"
+
