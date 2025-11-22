@@ -29,7 +29,7 @@ function EasyGearPage() {
 
   const nextProduct = useCallback(() => {
     setCurrentProduct((prev) => (prev + 1) % products.length);
-  }, []);
+  }, [products.length]);
 
   useEffect(() => {
     const interval = setInterval(nextProduct, 4000);

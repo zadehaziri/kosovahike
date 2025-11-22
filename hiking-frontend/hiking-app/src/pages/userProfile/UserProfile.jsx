@@ -19,6 +19,50 @@ const UserProfile = () => {
   const [joinedEvents, setJoinedEvents] = useState([]);
   const { blogs } = useSelector((state) => state.blogs.blogs);
 
+  const calculateProfileCompletion = useCallback(() => {
+    const excludedFields = [
+      'trailFavorites',
+      'pastTrails',
+      'eventsAttending',
+      '_id',
+      '__v',
+      'hikeBuddy',
+    ];
+    let totalFields =
+      Object.keys(loggedUser).length -
+      excludedFields.length +
+      Object.keys(loggedUser.socialMedia).length;
+    let filledFields = 0;
+    let fieldsToFill = [];
+
+    Object.keys(loggedUser).forEach((key) => {
+      if (
+        loggedUser[key] &&
+        loggedUser[key] !== '' &&
+        !(Array.isArray(loggedUser[key]) && loggedUser[key].length === 0) &&
+        !excludedFields.includes(key)
+      ) {
+        filledFields++;
+      } else if (!excludedFields.includes(key)) {
+        fieldsToFill.push(key);
+      }
+    });
+
+    if (loggedUser.socialMedia) {
+      Object.keys(loggedUser.socialMedia).forEach((key) => {
+        if (loggedUser.socialMedia[key] && !excludedFields.includes(key)) {
+          filledFields++;
+        } else {
+          fieldsToFill.push(`socialMedia.${key}`);
+        }
+      });
+    }
+
+    const completionPercentage = (filledFields / totalFields) * 100;
+    setProfileCompletion(completionPercentage.toFixed());
+    setFieldsToFill(fieldsToFill);
+  }, [loggedUser]);
+
   useEffect(() => {
     calculateProfileCompletion();
   }, [loggedUser, calculateProfileCompletion]);
@@ -79,55 +123,11 @@ const UserProfile = () => {
         setJoinedEvents(fetchedEvents);
       });
     }
-  }, []);
+  }, [loggedUser]);
 
   const handleSectionChange = (section) => {
     setActiveSection(section);
   };
-
-  const calculateProfileCompletion = useCallback(() => {
-    const excludedFields = [
-      'trailFavorites',
-      'pastTrails',
-      'eventsAttending',
-      '_id',
-      '__v',
-      'hikeBuddy',
-    ];
-    let totalFields =
-      Object.keys(loggedUser).length -
-      excludedFields.length +
-      Object.keys(loggedUser.socialMedia).length;
-    let filledFields = 0;
-    let fieldsToFill = [];
-
-    Object.keys(loggedUser).forEach((key) => {
-      if (
-        loggedUser[key] &&
-        loggedUser[key] !== '' &&
-        !(Array.isArray(loggedUser[key]) && loggedUser[key].length === 0) &&
-        !excludedFields.includes(key)
-      ) {
-        filledFields++;
-      } else if (!excludedFields.includes(key)) {
-        fieldsToFill.push(key);
-      }
-    });
-
-    if (loggedUser.socialMedia) {
-      Object.keys(loggedUser.socialMedia).forEach((key) => {
-        if (loggedUser.socialMedia[key] && !excludedFields.includes(key)) {
-          filledFields++;
-        } else {
-          fieldsToFill.push(`socialMedia.${key}`);
-        }
-      });
-    }
-
-    const completionPercentage = (filledFields / totalFields) * 100;
-    setProfileCompletion(completionPercentage.toFixed());
-    setFieldsToFill(fieldsToFill);
-  }, [loggedUser]);
 
   const renderSection = (section) => {
     switch (section) {

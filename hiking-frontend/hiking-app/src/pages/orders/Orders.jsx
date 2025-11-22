@@ -17,20 +17,6 @@ function Orders() {
   const [currentPage, setCurrentPage] = useState(1);
   const ordersPerPage = 3;
 
-  useEffect(() => {
-    if (!userId) {
-      message.warning('Please login to view your orders');
-      navigate('/login');
-      return;
-    }
-    fetchOrders();
-  }, [userId, fetchOrders, message, navigate]);
-
-  // Reset to page 1 when orders change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [orders.length]);
-
   const fetchOrders = useCallback(async () => {
     if (!userId) return;
     
@@ -46,6 +32,20 @@ function Orders() {
       setLoading(false);
     }
   }, [userId, message]);
+
+  useEffect(() => {
+    if (!userId) {
+      message.warning('Please login to view your orders');
+      navigate('/login');
+      return;
+    }
+    fetchOrders();
+  }, [userId, fetchOrders, message, navigate]);
+
+  // Reset to page 1 when orders change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [orders.length]);
 
   const getStatusColor = (status) => {
     switch (status) {

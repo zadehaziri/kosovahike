@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './HikingBuddy.scss';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const HikingBuddy = () => {
 
   const loggedUser = useSelector((state) => state.loggedUser);
 
-  const fetchHikeBuddies = async () => {
+  const fetchHikeBuddies = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get('http://localhost:5000/hikeBuddies');
@@ -44,11 +44,11 @@ const HikingBuddy = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [loggedUser]);
 
   useEffect(() => {
     fetchHikeBuddies();
-  }, []);
+  }, [fetchHikeBuddies]);
 
   const handleSearch = async () => {
     setSearching(true);

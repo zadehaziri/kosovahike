@@ -13,7 +13,6 @@ import { clearLoggedUser } from "../../redux/users/loggedUserSlice";
 
 const DropDown = () => {
   const dispatch = useDispatch(clearLoggedUser);
-  const user = useSelector((state) => state.loggedUser.user);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);

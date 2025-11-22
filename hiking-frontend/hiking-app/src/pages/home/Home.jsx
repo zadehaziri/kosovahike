@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.scss';
-import Testimonials from '../../components/Testimonials/Testimonials';
 import Banner from '../../components/Home/Banner/Banner';
 import TopRatedTrails from '../../components/Home/TopRatedTrails/TopRatedTrails';
 import TopServices from '../../components/Home/TopServices/TopServices';

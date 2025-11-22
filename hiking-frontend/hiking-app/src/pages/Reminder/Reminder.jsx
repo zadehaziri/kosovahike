@@ -61,8 +61,6 @@ const Reminder = () => {
   };
 
   const getReminders = () => {
-    const searchQuery = searchTerm ? `?location=${searchTerm}` : '';
-
     axios.get('http://localhost:5000/reminder')
       .then(response => {
         setReminders(response.data);

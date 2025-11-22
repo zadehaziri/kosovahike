@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { message } from "antd";
 import { useSelector } from "react-redux";
@@ -42,7 +42,7 @@ const IncomingEventsPage = () => {
     }
   };
 
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     try {
       const response = await getEventAPIByEventMode();
       if (response !== null && response.status === 200) {
@@ -54,7 +54,7 @@ const IncomingEventsPage = () => {
       console.error("Error fetching events:", error);
       message.error("Failed to fetch events");
     }
-  };
+  }, [mode, trailId]);
 
   const handleDeleteEvent = async (eventId) => {
     try {
@@ -106,7 +106,7 @@ const IncomingEventsPage = () => {
     if (trailId === undefined || trailId === null) return;
 
     fetchEvents();
-  }, []);
+  }, [trailId, fetchEvents]);
 
   const getEventById = async (eventId) => {
     try {
