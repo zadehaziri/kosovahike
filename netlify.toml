@@ -3,3 +3,10 @@
   publish = "build"
   command = "npm install && npm run build"
 
+# Environment Variables
+# Shto këto në Netlify Dashboard → Site Settings → Environment Variables:
+# REACT_APP_API_URL = https://kosovahike-1.onrender.com
+[build.environment]
+  # Ky do të përdoret nëse nuk është vendosur në Netlify Dashboard
+  # REACT_APP_API_URL = "https://kosovahike-1.onrender.com"
+

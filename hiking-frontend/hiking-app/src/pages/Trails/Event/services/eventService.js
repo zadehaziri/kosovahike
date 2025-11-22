@@ -1,6 +1,7 @@
 import axios from "axios";
+import { config } from "../../../../config";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = config.BASE_URL;
 
 class EventService {
   fetchEvent() {

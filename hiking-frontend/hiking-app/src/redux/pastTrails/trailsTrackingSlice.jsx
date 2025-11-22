@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { config } from '../../config';
 
 export const addPastTrail = createAsyncThunk(
   'pastTrails/addPastTrail',
   async ({ userId, pastTrailData }) => {
     const response = await axios.post(
-      `http://localhost:5000/users/${userId}/user-trails`,
+      `${config.BASE_URL}/users/${userId}/user-trails`,
       pastTrailData,
       {
         headers: {
@@ -22,7 +23,7 @@ export const removePastTrail = createAsyncThunk(
   'pastTrails/removePastTrail',
   async ({ userId, trailId }) => {
     const response = await axios.delete(
-      `http://localhost:5000/users/${userId}/user-trails/${trailId}`
+      `${config.BASE_URL}/users/${userId}/user-trails/${trailId}`
     );
     return response.data;
   }
@@ -32,7 +33,7 @@ export const fetchPastTrails = createAsyncThunk(
   'pastTrails/fetchPastTrails',
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/users/${userId}/user-trails`
+      `${config.BASE_URL}/users/${userId}/user-trails`
     );
     return response.data.trails;
   }
@@ -42,7 +43,7 @@ export const fetchSinglePastTrail = createAsyncThunk(
   'pastTrails/fetchSingleTrail',
   async ({ userId, trailId }) => {
     const response = await axios.get(
-      `http://localhost:5000/users/${userId}/user-trails/${trailId}`
+      `${config.BASE_URL}/users/${userId}/user-trails/${trailId}`
     );
     return response.data;
   }

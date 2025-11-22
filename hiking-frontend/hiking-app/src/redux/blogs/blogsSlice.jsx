@@ -1,15 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { config } from '../../config';
 
 export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async () => {
-  const response = await axios.get(`http://localhost:5000/blogs`);
+  const response = await axios.get(`${config.BASE_URL}/blogs`);
   return response.data;
 });
 export const fetchBlogsByUser = createAsyncThunk(
   'blogs/fetchBlogsByUser',
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/blogs/user/${userId}`
+      `${config.BASE_URL}/blogs/user/${userId}`
     );
     return response.data;
   }
@@ -18,7 +19,7 @@ export const fetchBlogsByUser = createAsyncThunk(
 export const fetchBlogById = createAsyncThunk(
   'blogs/fetchBlogById',
   async (blogId) => {
-    const response = await axios.get(`http://localhost:5000/blogs/${blogId}`);
+    const response = await axios.get(`${config.BASE_URL}/blogs/${blogId}`);
     console.log(response);
     return response.data;
   }
@@ -28,7 +29,7 @@ export const addBlog = createAsyncThunk(
   'blogs/addBlog',
   async ({ authorId, blogData }) => {
     const response = await axios.post(
-      `http://localhost:5000/blogs/${authorId}`,
+      `${config.BASE_URL}/blogs/${authorId}`,
       blogData,
       {
         headers: {

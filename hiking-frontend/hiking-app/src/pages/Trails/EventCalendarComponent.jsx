@@ -8,6 +8,7 @@ import IncomingEventsPage from "./Event/EventFromTrail/IncomingEventsPage";
 import moment from "moment/moment";
 import { updateEvents } from "../../redux/users/loggedUserSlice";
 import { useDispatch } from "react-redux";
+import { config } from "../../../config";
 
 const EventCalendarComponent = ({ trail }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -26,7 +27,7 @@ const EventCalendarComponent = ({ trail }) => {
     fetchEvents();
   }, []);
 
-  const BASE_URL = "http://localhost:5000";
+  const BASE_URL = config.BASE_URL;
 
   const fetchEvents = async () => {
     try {
