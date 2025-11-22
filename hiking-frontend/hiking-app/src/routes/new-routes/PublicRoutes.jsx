@@ -14,10 +14,6 @@ const Contactus = lazy(() => import("../../pages/contactus/contactus"));
 const AllEventsPage = lazy(() =>
   import("../../pages/Trails/Event/Events/EventsPage")
 );
-const BlogPosts = lazy(() => import("../../pages/blogPosts/BlogPosts"));
-const SingleBlogPost = lazy(() =>
-  import("../../pages/blogPosts/SingleBlogPost")
-);
 
 export default function publicRoutes() {
   return {

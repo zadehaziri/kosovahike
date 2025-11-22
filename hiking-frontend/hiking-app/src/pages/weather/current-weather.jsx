@@ -48,12 +48,12 @@ const CurrentWeather = ({ data }) => {
           </div>
           <div className="parameter-row">
             {/* <span className="parameter-label">Humidity</span> */}
-            <img src={humidityImg} />
+            <img src={humidityImg} alt="Humidity Icon" />
             <p className="parameter-value">{data.main.humidity} g/kg</p>
           </div>
           <div className="parameter-row">
             {/* <span className="parameter-label">Visibility</span> */}
-            <img src={wisibilityImg} />
+            <img src={wisibilityImg} alt="Visibility Icon" />
             <p className="parameter-value"> {data.visibility}</p>
           </div>
         </div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './navProfile.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket, faBars, faBlog, faCalendarDays, faHeart, faPlus, faSquarePollHorizontal, faUser, faX } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket, faBlog, faCalendarDays, faHeart, faPlus, faSquarePollHorizontal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { clearLoggedUser } from "../../redux/users/loggedUserSlice";
 import { useDispatch } from "react-redux";
 

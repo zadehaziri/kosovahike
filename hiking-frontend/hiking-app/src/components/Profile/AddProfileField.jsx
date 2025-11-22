@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../Shared/Button/Button';
 import './addProfileField.scss';
 import Modal from '../Shared/Modal/Modal';
-import { Form, message, Upload } from "antd";
+import { Form, message } from "antd";
 import InputField from '../Shared/InputField/InputField';
 import SelectField from '../Shared/SelectField/SelectField';
 import authService from '../../services/authService';

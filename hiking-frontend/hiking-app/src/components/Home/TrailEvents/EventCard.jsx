@@ -7,7 +7,6 @@ import { App } from 'antd';
 import axios from 'axios';
 import { config } from '../../../config';
 import Button from '../../Shared/Button/Button';
-import { isUserAlreadyJoined } from '../../../pages/Trails/Event/utils/isUserAlreadyJoined';
 import './eventCard.scss';
 
 const EventCard = ({ img, duration, size, difficulty, details, link, eventId, attendees, onJoinSuccess }) => {

@@ -15,7 +15,6 @@ const WEEK_DAYS = [
 ];
 
 function Weather({ location }) {
-  const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
   const [selectedDayForecast, setSelectedDayForecast] = useState(null);
@@ -32,7 +31,6 @@ function Weather({ location }) {
           const weatherResponse = await axios.get(
             `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
           );
-          setCurrentWeather({ city: location, ...weatherResponse.data });
 
           const forecastResponse = await axios.get(
             `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`

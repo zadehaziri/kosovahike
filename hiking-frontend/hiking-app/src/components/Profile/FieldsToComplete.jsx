@@ -2,7 +2,6 @@ import React from 'react';
 import './fieldsToComplete.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUser,
   faImage,
   faClock,
   faLayerGroup,
