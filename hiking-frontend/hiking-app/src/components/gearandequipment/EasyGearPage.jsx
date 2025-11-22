@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./EasyGearPage.scss";
 
 function EasyGearPage() {
@@ -27,23 +27,19 @@ function EasyGearPage() {
     },
   ];
 
-  const nextProduct = () => {
-    setCurrentProduct((currentProduct + 1) % products.length);
-  };
-
-  const prevProduct = () => {
-    setCurrentProduct((currentProduct - 1 + products.length) % products.length);
-  };
+  const nextProduct = useCallback(() => {
+    setCurrentProduct((prev) => (prev + 1) % products.length);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(nextProduct, 4000);
     return () => clearInterval(interval);
-  }, [currentProduct]);
+  }, [nextProduct]);
 
   return (
     <div className="easy-gear-container">
       <div className="image-container">
-        <img src={products[currentProduct].imageUrl} />
+        <img src={products[currentProduct].imageUrl} alt="Hiking gear equipment" />
       </div>
     </div>
   );

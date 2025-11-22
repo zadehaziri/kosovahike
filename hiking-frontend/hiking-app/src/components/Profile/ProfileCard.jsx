@@ -219,7 +219,7 @@ const ProfileCard = ({ user }) => {
                 <img
                   key={`${imageName}-${loggedUser.user?.profileImg?.name || ''}`}
                   src={imageUrl}
-                  alt="profile image"
+                  alt={`${user?.firstName || loggedUser.user?.firstName || 'User'} profile`}
                   onError={(e) => {
                     console.error('Profile image failed to load. URL:', imageUrl);
                     console.error('ProfileImg data:', profileImg);
@@ -239,7 +239,7 @@ const ProfileCard = ({ user }) => {
               return (
                 <img
                   src={gravatarUrl}
-                  alt="profile image"
+                  alt={`${user?.firstName || loggedUser.user?.firstName || 'User'} avatar`}
                 />
               );
             }

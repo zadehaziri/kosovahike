@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './UserProfile.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import NavProfile from '../../components/Profile/NavProfile';
@@ -21,7 +21,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     calculateProfileCompletion();
-  }, [loggedUser]);
+  }, [loggedUser, calculateProfileCompletion]);
 
   useEffect(() => {
     if (loggedUser && loggedUser._id) {
@@ -57,9 +57,9 @@ const UserProfile = () => {
         )
       ).then(() => {
         setFavoritedTrails(fetchedTrails);
-      });
+      }      );
     }
-  }, []);
+  }, [loggedUser]);
 
   useEffect(() => {
     if (loggedUser && loggedUser._id) {
@@ -85,7 +85,7 @@ const UserProfile = () => {
     setActiveSection(section);
   };
 
-  const calculateProfileCompletion = () => {
+  const calculateProfileCompletion = useCallback(() => {
     const excludedFields = [
       'trailFavorites',
       'pastTrails',
@@ -127,7 +127,7 @@ const UserProfile = () => {
     const completionPercentage = (filledFields / totalFields) * 100;
     setProfileCompletion(completionPercentage.toFixed());
     setFieldsToFill(fieldsToFill);
-  };
+  }, [loggedUser]);
 
   const renderSection = (section) => {
     switch (section) {

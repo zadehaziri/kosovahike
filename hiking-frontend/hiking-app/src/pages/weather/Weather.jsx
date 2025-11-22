@@ -28,7 +28,7 @@ function Weather({ location }) {
 
         if (response.data.length > 0) {
           const { lat, lon } = response.data[0];
-          const weatherResponse = await axios.get(
+          await axios.get(
             `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
           );
 

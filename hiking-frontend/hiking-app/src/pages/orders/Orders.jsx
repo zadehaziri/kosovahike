@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { App } from "antd";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -24,14 +24,14 @@ function Orders() {
       return;
     }
     fetchOrders();
-  }, [userId]);
+  }, [userId, fetchOrders, message, navigate]);
 
   // Reset to page 1 when orders change
   useEffect(() => {
     setCurrentPage(1);
   }, [orders.length]);
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     if (!userId) return;
     
     try {
@@ -45,7 +45,7 @@ function Orders() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId, message]);
 
   const getStatusColor = (status) => {
     switch (status) {
