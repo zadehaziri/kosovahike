@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "./Modal";
-import { message } from "antd";
 
 const ReviewModalComponent = ({
   isOpen,

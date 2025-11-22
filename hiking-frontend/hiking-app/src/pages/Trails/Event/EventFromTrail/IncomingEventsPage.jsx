@@ -54,7 +54,7 @@ const IncomingEventsPage = () => {
       console.error("Error fetching events:", error);
       message.error("Failed to fetch events");
     }
-  }, [getEventAPIByEventMode, message]);
+  }, [getEventAPIByEventMode]);
 
   const handleDeleteEvent = async (eventId) => {
     try {

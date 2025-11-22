@@ -1,6 +1,5 @@
 import React from "react";
 import EventCalendarComponent from "./EventCalendarComponent";
-import EasyGearPage from "../../components/gearandequipment/EasyGearPage";
 import "./TrailInfoComponent.scss";
 import InfoOfCommingAndPastEvents from "./InfoOfCommingAndPastEvents";
 

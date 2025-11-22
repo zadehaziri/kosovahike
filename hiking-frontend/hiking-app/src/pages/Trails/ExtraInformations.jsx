@@ -44,16 +44,6 @@ const ExtraInformations = ({ trail }) => {
     setHovered(!hovered);
   };
 
-  const renderDifficultyCircle = () => {
-    const difficultyColor = difficultyColorMap[trail?.difficulty];
-
-    return (
-      <div className={`difficulty-circle ${difficultyColor}`}>
-        <div className="inner-circle"></div>
-      </div>
-    );
-  };
-
   return (
     <div className="extra-information-of-trail">
       <div className="data-of-trail-single">

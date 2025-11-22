@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import moment from "moment";
 import {
   calculateRemainingDateUnits,
@@ -28,16 +28,16 @@ const NearestEventCard = ({
     days: "",
   });
 
-  const updateUnits = () => {
+  const updateUnits = useCallback(() => {
     if (event && event.date) {
       setRemainingUnits(calculateRemainingDateUnits(event.date));
       setCalendarUnits(carendarUnits(event.date));
     }
-  };
+  }, [event]);
 
-  const eachSecondPassed = () => {
+  const eachSecondPassed = useCallback(() => {
     updateUnits();
-  };
+  }, [updateUnits]);
 
   const { start, reset } = useCountdown(60, eachSecondPassed);
 
@@ -47,13 +47,13 @@ const NearestEventCard = ({
     return () => {
       reset();
     };
-  }, []);
+  }, [start, reset]);
 
   useEffect(() => {
     if (event) {
       updateUnits();
     }
-  }, [event]);
+  }, [event, updateUnits]);
 
   if (!event) {
     return <div>Loading...</div>;

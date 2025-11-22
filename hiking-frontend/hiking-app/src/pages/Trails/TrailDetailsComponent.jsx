@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import StarRating from "./StarRating";
 import "./TrailsDetailsComponent.scss";
 // import { AverageRatingComponent } from "./AverageRatingComponent";
 

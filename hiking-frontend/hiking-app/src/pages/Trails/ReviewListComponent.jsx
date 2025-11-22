@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useMemo, memo } from "react";
-import { Link } from "react-router-dom";
+import React, { useMemo, memo } from "react";
 import StarRating from "./StarRating";
 import "./ReviewListComponent.scss";
 import Button from "../../components/Shared/Button/Button";
-import SubTitle from "../../components/Shared/Subtitle/SubTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 

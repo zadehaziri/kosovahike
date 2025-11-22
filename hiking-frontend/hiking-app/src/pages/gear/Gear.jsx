@@ -20,47 +20,8 @@ import gearImage13 from "../../assets/images/gear13.png";
 import gearImage14 from "../../assets/images/gear14.png";
 import ChatHelper from "../../components/ChatHelper/chathelper";
 
-function GearShop() {
-  const { message } = App.useApp();
-  const userId = useSelector((state) => state.loggedUser.user?._id);
-  const [searchCourse, setSearchCourse] = useState("");
-  const [expandedProductId, setExpandedProductId] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 6;
-
-  // Cart functionality with API
-  const addToCart = async (product) => {
-    if (!userId) {
-      message.warning('Please login to add products to cart');
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        `${config.BASE_URL}/users/${userId}/cart`,
-        {
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          imageUrl: product.imageUrl
-        }
-      );
-
-      if (response.status === 200) {
-        const existingItem = response.data.find(item => item.productId === product.id);
-        if (existingItem && existingItem.quantity > 1) {
-          message.success(`${product.name} quantity updated in cart!`);
-        } else {
-          message.success(`${product.name} added to cart!`);
-        }
-      }
-    } catch (error) {
-      console.error('Error adding to cart:', error);
-      message.error(error.response?.data?.error || 'Failed to add product to cart');
-    }
-  };
-
-  const categories = [
+// Move categories outside component to make it stable
+const CATEGORIES = [
     {
       products: [
         {
@@ -234,12 +195,52 @@ function GearShop() {
         },
       ],
     },
-  ];
+];
+
+function GearShop() {
+  const { message } = App.useApp();
+  const userId = useSelector((state) => state.loggedUser.user?._id);
+  const [searchCourse, setSearchCourse] = useState("");
+  const [expandedProductId, setExpandedProductId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
+
+  // Cart functionality with API
+  const addToCart = async (product) => {
+    if (!userId) {
+      message.warning('Please login to add products to cart');
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `${config.BASE_URL}/users/${userId}/cart`,
+        {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          imageUrl: product.imageUrl
+        }
+      );
+
+      if (response.status === 200) {
+        const existingItem = response.data.find(item => item.productId === product.id);
+        if (existingItem && existingItem.quantity > 1) {
+          message.success(`${product.name} quantity updated in cart!`);
+        } else {
+          message.success(`${product.name} added to cart!`);
+        }
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      message.error(error.response?.data?.error || 'Failed to add product to cart');
+    }
+  };
 
   // Combine all products from all categories
   const allProducts = useMemo(() => {
-    return categories.flatMap(category => category.products || []);
-  }, [categories]);
+    return CATEGORIES.flatMap(category => category.products || []);
+  }, []);
 
   // Filter products based on search
   const filteredProducts = useMemo(() => {
