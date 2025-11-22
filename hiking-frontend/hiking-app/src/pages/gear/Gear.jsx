@@ -7,7 +7,6 @@ import "./Gear.scss";
 import RelatedArticles from "./../../pages/gear/articlesGear.jsx";
 import gearImage1 from "../../assets/images/gear01.png";
 import gearImage2 from "../../assets/images/gear02.png";
-import gearImage3 from "../../assets/images/gear03.png";
 import gearImage4 from "../../assets/images/gear04.png";
 import gearImage5 from "../../assets/images/gear05.png";
 import gearImage6 from "../../assets/images/gear06.png";
@@ -240,7 +239,7 @@ function GearShop() {
   // Combine all products from all categories
   const allProducts = useMemo(() => {
     return categories.flatMap(category => category.products || []);
-  }, []);
+  }, [categories]);
 
   // Filter products based on search
   const filteredProducts = useMemo(() => {

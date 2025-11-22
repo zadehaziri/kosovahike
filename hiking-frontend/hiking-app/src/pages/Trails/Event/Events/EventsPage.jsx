@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { App } from "antd";
 import { useSelector } from "react-redux";
 import { MdOutlineSearch } from "react-icons/md";
@@ -34,7 +34,7 @@ const EventsPage = () => {
     description: "",
   });
 
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -53,11 +53,11 @@ const EventsPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [message]);
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, [fetchEvents]);
 
   // Reset to page 1 when filter or search changes
   useEffect(() => {

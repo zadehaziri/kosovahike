@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { App } from "antd";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -36,16 +36,7 @@ function Cart() {
     }
   });
 
-  useEffect(() => {
-    if (!userId) {
-      message.warning('Please login to view your cart');
-      navigate('/login');
-      return;
-    }
-    fetchCart();
-  }, [userId]);
-
-  const fetchCart = async () => {
+  const fetchCart = useCallback(async () => {
     if (!userId) return;
     
     try {
@@ -59,7 +50,16 @@ function Cart() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId, message]);
+
+  useEffect(() => {
+    if (!userId) {
+      message.warning('Please login to view your cart');
+      navigate('/login');
+      return;
+    }
+    fetchCart();
+  }, [userId, fetchCart, message, navigate]);
 
   const updateQuantity = async (productId, newQuantity) => {
     if (!userId) return;

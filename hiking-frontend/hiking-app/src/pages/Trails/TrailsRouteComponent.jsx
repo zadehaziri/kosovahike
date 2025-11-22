@@ -1,6 +1,4 @@
 import React, { useMemo } from "react";
-import { AverageRatingComponent } from "./AverageRatingComponent";
-
 import "./TrailsRouteComponent.scss";
 
 const TrailRouteComponent = ({ trail }) => {

@@ -31,7 +31,7 @@ const IncomingEventsPage = () => {
     description: "",
   });
 
-  const getEventAPIByEventMode = () => {
+  const getEventAPIByEventMode = useCallback(() => {
     switch (mode) {
       case EVENT_MODES.PAST:
         return eventService.fetchPastEventsByTrailId(trailId);
@@ -40,7 +40,7 @@ const IncomingEventsPage = () => {
       default:
         eventService.fetchEventsByTrailId(trailId);
     }
-  };
+  }, [mode, trailId]);
 
   const fetchEvents = useCallback(async () => {
     try {
@@ -54,7 +54,7 @@ const IncomingEventsPage = () => {
       console.error("Error fetching events:", error);
       message.error("Failed to fetch events");
     }
-  }, [mode, trailId]);
+  }, [getEventAPIByEventMode, message]);
 
   const handleDeleteEvent = async (eventId) => {
     try {

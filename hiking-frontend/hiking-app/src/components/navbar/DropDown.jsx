@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FiUser } from "react-icons/fi";
 import { IoStatsChartOutline } from "react-icons/io5";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
